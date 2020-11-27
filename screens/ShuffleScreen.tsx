@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { theme } from '../assets/theme';
+import Card from '../components/card';
 
 const ShuffleScreen = () => {
   return (
@@ -13,6 +14,7 @@ const ShuffleScreen = () => {
       }}
     >
       <Text>Hello</Text>
+      <Card suit="♦" value="A" />
     </View>
   );
 };
