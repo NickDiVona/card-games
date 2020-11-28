@@ -9,16 +9,16 @@ interface CardPropTypes {
 const Card = ({ suit, value }: CardPropTypes) => {
   return (
     <View style={styles.cardStyle}>
-      <View style={styles.upperLegendStyle}>
+      <View style={styles.upperLegendContainerStyle}>
         <Text>{value}</Text>
         <Text>{suit}</Text>
       </View>
-      <View style={styles.centerLegendStyle}>
-        <Text>{value}</Text>
+      <View style={styles.centerLegendContainerStyle}>
+        <Text style={styles.centerLegendTextStyle}>{suit}</Text>
       </View>
-      <View style={styles.lowerLegendStyle}>
-        <Text>{suit}</Text>
-        <Text>{value}</Text>
+      <View style={styles.lowerLegendContainerStyle}>
+        <Text style={styles.lowerLegendTextStyle}>{suit}</Text>
+        <Text style={styles.lowerLegendTextStyle}>{value}</Text>
       </View>
     </View>
   );
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
 
-  upperLegendStyle: {
+  upperLegendContainerStyle: {
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -44,18 +44,24 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 10
   },
-  centerLegendStyle: {
+  centerLegendContainerStyle: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  lowerLegendStyle: {
+  centerLegendTextStyle: {
+    fontSize: 36
+  },
+  lowerLegendContainerStyle: {
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     marginBottom: 5,
     marginRight: 10,
     width: '100%'
+  },
+  lowerLegendTextStyle: {
+    transform: [{ rotate: '180deg' }]
   }
 });
 

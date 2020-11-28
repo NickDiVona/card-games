@@ -13,7 +13,6 @@ const ShuffleScreen = () => {
         alignItems: 'center'
       }}
     >
-      <Text>Hello</Text>
       <Card suit="♦" value="A" />
     </View>
   );
