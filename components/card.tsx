@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 interface CardPropTypes {
@@ -7,18 +7,34 @@ interface CardPropTypes {
 }
 
 const Card = ({ suit, value }: CardPropTypes) => {
+  const [deck, setDeck] = useState([]);
+
+  const suitColor = () => {
+    if (suit === '♥' || suit == '♦') {
+      return '#ff0000';
+    }
+
+    return '#000000';
+  };
+
   return (
     <View style={styles.cardStyle}>
       <View style={styles.upperLegendContainerStyle}>
-        <Text>{value}</Text>
-        <Text>{suit}</Text>
+        <Text style={{ color: suitColor() }}>{value}</Text>
+        <Text style={{ color: suitColor() }}>{suit}</Text>
       </View>
       <View style={styles.centerLegendContainerStyle}>
-        <Text style={styles.centerLegendTextStyle}>{suit}</Text>
+        <Text style={[styles.centerLegendTextStyle, { color: suitColor() }]}>
+          {suit}
+        </Text>
       </View>
       <View style={styles.lowerLegendContainerStyle}>
-        <Text style={styles.lowerLegendTextStyle}>{suit}</Text>
-        <Text style={styles.lowerLegendTextStyle}>{value}</Text>
+        <Text style={[styles.lowerLegendTextStyle, { color: suitColor() }]}>
+          {suit}
+        </Text>
+        <Text style={[styles.lowerLegendTextStyle, { color: suitColor() }]}>
+          {value}
+        </Text>
       </View>
     </View>
   );
@@ -30,7 +46,7 @@ const styles = StyleSheet.create({
     height: 140,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff',
     borderRadius: 10,
     flexDirection: 'column'
   },
